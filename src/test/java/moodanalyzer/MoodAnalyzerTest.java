@@ -18,10 +18,10 @@ public class MoodAnalyzerTest {
 	/**
 	 * MessageHappyMood() for testing mood as Happy
 	 */
-	// @Test
-	// public void MessageHappyMood() {
-	// MoodAnalyer moodAnalyzer = new MoodAnalyer();
-	// String actualResult = moodAnalyzer.analyseMood("I am in Any Mood");
-	// Assert.assertEquals("HAPPY", actualResult);
-	// }
+	@Test
+	public void MessageHappyMood() {
+		MoodAnalyer moodAnalyzer = new MoodAnalyer();
+		String actualResult = moodAnalyzer.analyseMood("I am in Any Mood");
+		Assert.assertEquals("HAPPY", actualResult);
+	}
 }
