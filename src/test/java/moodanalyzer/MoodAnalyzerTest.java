@@ -9,7 +9,7 @@ public class MoodAnalyzerTest {
 	 * MessageSadMood() for testing mood as sad
 	 */
 	@Test
-	public void MessageSadMood() {
+	public void MessageSadMood() throws MoodException {
 		MoodAnalyer moodAnalyzer = new MoodAnalyer();
 		String actualResult = moodAnalyzer.analyseMood("I am Sad Mood");
 		Assert.assertEquals("SAD", actualResult);
@@ -19,7 +19,7 @@ public class MoodAnalyzerTest {
 	 * MessageHappyMood() for testing mood as Happy
 	 */
 	@Test
-	public void MessageHappyMood() {
+	public void MessageHappyMood() throws MoodException {
 		MoodAnalyer moodAnalyzer = new MoodAnalyer();
 		String actualResult = moodAnalyzer.analyseMood("I am in Happy Mood");
 		Assert.assertEquals("HAPPY", actualResult);
@@ -29,7 +29,7 @@ public class MoodAnalyzerTest {
 	 * MessageHappyMood() for testing mood as Happy
 	 */
 	@Test
-	public void MessageAnyMood() {
+	public void MessageAnyMood() throws MoodException {
 		MoodAnalyer moodAnalyzer = new MoodAnalyer();
 		String actualResult = moodAnalyzer.analyseMood("I am in Any Mood");
 		Assert.assertEquals("ANY", actualResult);
@@ -40,9 +40,14 @@ public class MoodAnalyzerTest {
 	 * passed then it will return happy and will be checked by assert method.
 	 */
 	@Test
-	public void NullExceptionHandler() {
+	public void NullExceptionHandler() throws MoodException {
 		MoodAnalyer moodAnalyzer = new MoodAnalyer();
-		String actualResult = moodAnalyzer.analyseMood(null);
-		Assert.assertEquals("Happy", actualResult);
+		try {
+
+			String actualResult = moodAnalyzer.analyseMood(null);
+			Assert.assertEquals("Invalid Mood", actualResult);
+		} catch (MoodException e) {
+			System.out.println("Invalid Mood");
+		}
 	}
 }

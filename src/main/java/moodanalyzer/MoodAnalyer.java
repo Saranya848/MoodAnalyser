@@ -40,13 +40,14 @@ public class MoodAnalyer {
 	/**
 	 * This method will compute if the mood is happy or sad using Exception
 	 * Handling. 1. We will convert the message to lower case and check it the
-	 * string contains happy or sad word in it. Accordingly we will return Happy or
-	 * Sad mood.
+	 * string contains happy or sad word in it. 2. Accordingly we will return Happy
+	 * or Sad mood. 3.The NullPointerException will be triggered & it will return
+	 * Invalid Mood
 	 * 
 	 * @param message - We will pass the string message from the main method.
 	 * @return - We will return the mood Happy or Sad
 	 */
-	public String analyseMood(String message) {
+	public String analyseMood(String message) throws MoodException {
 		try {
 			if (message.toLowerCase().contains("sad")) {
 				return "SAD";
@@ -56,14 +57,16 @@ public class MoodAnalyer {
 				return "ANY";
 			}
 		} catch (NullPointerException e) {
-			return "Happy";// returns NULL
+			throw new MoodException("Exception found");
 		}
 	}
 
 	/**
 	 * In the main method we have created an object and called the methods.
+	 * 
+	 * @throws MoodException
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws MoodException {
 		MoodAnalyer mood = new MoodAnalyer();
 		System.out.println(mood.analyseMood(message));
 
