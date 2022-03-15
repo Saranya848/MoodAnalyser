@@ -34,13 +34,15 @@ public class MoodAnalyer {
 	 * @return - We will return the mood Happy or Sad
 	 */
 	public String analyseMood(String message) {
-		if (message.toLowerCase().contains("happy")) {
-			return "Happy";
-		} else if (message.toLowerCase().contains("sad")) {
-			return "Sad";
-		} else {
-			return null;
+		if (message.toLowerCase().contains("sad")) {
+			return "SAD";
 		}
+		//else if (message.toLowerCase().contains("sad")) {
+		//	return "Sad";
+		//} else {
+		//	return null;
+		//}
+		return message;
 	}
 
 	/**
@@ -48,10 +50,10 @@ public class MoodAnalyer {
 	 */
 	public static void main(String[] args) {
 		MoodAnalyer mood = new MoodAnalyer();
-		mood.setMessage("I am Happy");
-		System.out.println(mood.analyseMood(message));
+		//mood.setMessage("I am Happy");
+		//System.out.println(mood.analyseMood(message));
 
-		mood.setMessage("I am Sad");
+		mood.setMessage("I am in Sad Mood");
 		System.out.println(mood.analyseMood(message));
 	}
 
