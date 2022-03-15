@@ -3,7 +3,19 @@ package moodanalyzer;
 public class MoodAnalyer {
 	private static String message;
 
+	/**
+	 * Defualt Constructor
+	 */
 	public MoodAnalyer() {
+
+	}
+
+	/**
+	 * Parameter Constructor
+	 * 
+	 * @param message
+	 */
+	public MoodAnalyer(String message) {
 		this.setMessage(message);
 	}
 
