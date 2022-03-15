@@ -38,22 +38,26 @@ public class MoodAnalyer {
 	}
 
 	/**
-	 * This method will compute if the mood is happy or sad. 1. We will convert the
-	 * message to lower case and check it the string contains happy or sad word in
-	 * it. Accordingly we will return Happy or Sad mood.
+	 * This method will compute if the mood is happy or sad using Exception
+	 * Handling. 1. We will convert the message to lower case and check it the
+	 * string contains happy or sad word in it. Accordingly we will return Happy or
+	 * Sad mood.
 	 * 
 	 * @param message - We will pass the string message from the main method.
 	 * @return - We will return the mood Happy or Sad
 	 */
 	public String analyseMood(String message) {
-		if (message.toLowerCase().contains("sad")) {
-			return "SAD";
-		} else if (message.toLowerCase().contains("happy")) {
-			return "HAPPY";
-		} else {
-			return null;
+		try {
+			if (message.toLowerCase().contains("sad")) {
+				return "SAD";
+			} else if (message.toLowerCase().contains("happy")) {
+				return "HAPPY";
+			} else {
+				return "ANY";
+			}
+		} catch (NullPointerException e) {
+			return "Happy";// returns NULL
 		}
-
 	}
 
 	/**
@@ -61,11 +65,7 @@ public class MoodAnalyer {
 	 */
 	public static void main(String[] args) {
 		MoodAnalyer mood = new MoodAnalyer();
-		mood.setMessage("I am Happy");
 		System.out.println(mood.analyseMood(message));
 
-		mood.setMessage("I am in Sad Mood");
-		System.out.println(mood.analyseMood(message));
 	}
-
 }
